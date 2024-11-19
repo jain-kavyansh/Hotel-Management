@@ -1,0 +1,119 @@
+.booking-page {
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1, p {
+    text-align: center;
+  }
+  
+  .date-picker, .guest-selector {
+    margin: 20px 0;
+  }
+  
+  .date-picker label, .guest-selector label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .date-picker input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 5px;
+  }
+  
+  .date-picker small, .guest-selector small {
+    font-size: 0.9em;
+    color: #666;
+  }
+  
+  .guest-selector .guest-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .guest-buttons button {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    cursor: pointer;
+  }
+  
+  .guest-buttons .active {
+    background-color: #333;
+    color: white;
+  }
+  
+  .available-rooms {
+    margin-top: 30px;
+  }
+  
+  .available-rooms h2 {
+    text-align: center;
+  }
+  
+  .room {
+    border: 1px solid #ddd;
+    margin: 15px 0;
+    padding: 15px;
+    position: relative;
+  }
+  
+  .room-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #333;
+    color: white;
+    padding: 5px;
+    font-size: 0.8em;
+    border-radius: 4px;
+  }
+  
+  .room-image {
+    background-color: #f0f0f0;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+  }
+
+  .room-image img{
+    height: 100px;
+    width: 600px;
+  }
+  
+  .room-info {
+    margin-top: 10px;
+  }
+  
+  .room-info h3 {
+    margin: 5px 0;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .explore-button, .book-button {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    font-size: 1em;
+  }
+  
+  .explore-button {
+    background-color: #f0f0f0;
+  }
+  
+  .book-button {
+    background-color: #333;
+    color: white;
+  }
+  

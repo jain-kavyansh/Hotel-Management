@@ -1,0 +1,53 @@
+.welcome-page {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .rooms-section {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .rooms-icon img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .featured-products, .guest-reviews, .social-posts {
+    margin-top: 30px;
+  }
+  
+  .featured-products h2, .guest-reviews h2, .social-posts h2 {
+    font-size: 1.5em;
+  }
+  
+  .product, .review, .post {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  .icons {
+    margin-top: 10px;
+    font-size: 1.2em;
+  }
+
+  .next-button{
+    background-color: #333;
+    display: block;
+    color: white;
+    margin: auto;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    font-size: 1em;
+  }
+  
