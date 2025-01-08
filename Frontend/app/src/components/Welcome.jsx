@@ -7,12 +7,12 @@ const WelcomePage = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState('Guest'); 
 
-  useEffect(() => {
 
+  useEffect(() => {
     const user = localStorage.getItem('user');
     if (user) {
       const parsedUser = JSON.parse(user);
-      setUsername(parsedUser.user?.fullname || 'Guest'); 
+      setUsername(parsedUser.fullname || 'Guest'); 
     } else {
       console.error("User data not found in localStorage");
     }
@@ -26,7 +26,7 @@ const WelcomePage = () => {
     <div className="welcome-page">
       <header className="header">
         <h1>Hotel Management</h1>
-        <p>Welcome {username}</p> {/* Display the username */}
+        <p>Welcome {username}</p> 
         <p>Enjoy Your Stay!</p>
       </header>
 

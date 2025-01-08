@@ -9,17 +9,15 @@ const BookingPage = () => {
   const [checkInDate, setCheckInDate] = useState('');
   const [checkOutDate, setCheckOutDate] = useState('');
   const [guests, setGuests] = useState(1);
-
-  const [username, setUsername] = useState('Guest'); 
+  const [username, setUsername] = useState('Guest');
 
   useEffect(() => {
-
     const user = localStorage.getItem('user');
     if (user) {
       const parsedUser = JSON.parse(user);
-      setUsername(parsedUser.user?.fullname || 'Guest'); 
+      setUsername(parsedUser.user?.fullname || 'Guest');
     } else {
-      console.error("User data not found in localStorage");
+      console.error('User data not found in localStorage');
     }
   }, []);
 
@@ -78,23 +76,48 @@ const BookingPage = () => {
         <small>Select the number of guests</small>
       </div>
 
-      <div className="available-rooms">
-        <h2>Available Rooms</h2>
-        <div className="room">
-          <span className="room-tag">Free Wi-Fi</span>
-          <div className="room-image"><img src={room1} alt="" /></div>
-          <div className="room-info">
-            <h3>Deluxe Suite</h3>
-            <p>From $200/night</p>
-          </div>
+      
+      <div className="amenities">
+        <h2>Our Facilities</h2>
+        <div className="facility">
+          <span className="facility-icon">🏊</span>
+          <p>Swimming Pool</p>
         </div>
-        <div className="room">
-          <span className="room-tag">Breakfast Included</span>
-          <div className="room-image"><img src={room2} alt="" /></div>
-          <div className="room-info">
-            <h3>Executive Room</h3>
-            <p>From $150/night</p>
-          </div>
+        <div className="facility">
+          <span className="facility-icon">💪</span>
+          <p>Fitness Center</p>
+        </div>
+        <div className="facility">
+          <span className="facility-icon">🍽️</span>
+          <p>Restaurant & Bar</p>
+        </div>
+        <div className="facility">
+          <span className="facility-icon">🧖</span>
+          <p>Spa & Wellness</p>
+        </div>
+        <div className="facility">
+          <span className="facility-icon">🌳</span>
+          <p>Beautiful Gardens</p>
+        </div>
+      </div>
+
+
+      <div className="packages">
+        <h2>Special Packages</h2>
+        <div className="package">
+          <h3>Weekend Getaway</h3>
+          <p>Enjoy a relaxing weekend with discounted rates. Includes breakfast for 2!</p>
+          <button onClick={() => alert('Package selected: Weekend Getaway')}>Select</button>
+        </div>
+        <div className="package">
+          <h3>Romantic Escape</h3>
+          <p>Get away with your loved one. Includes a couples spa and candlelight dinner!</p>
+          <button onClick={() => alert('Package selected: Romantic Escape')}>Select</button>
+        </div>
+        <div className="package">
+          <h3>Family Fun</h3>
+          <p>Special rates for families. Includes free kids’ activities and meals!</p>
+          <button onClick={() => alert('Package selected: Family Fun')}>Select</button>
         </div>
       </div>
 

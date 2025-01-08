@@ -29,10 +29,10 @@ function Signup() {
             navigate('/'); 
         }
         else{
-            alert("Error")
+            alert(`Error ${result.message}`)
         }
     } catch (error) {
-        alert("Error")
+        alert(error.message)
     }
     
   };
@@ -98,4 +98,9 @@ function Signup() {
   );
 }
 
+
+
 export default Signup;
+
+
+

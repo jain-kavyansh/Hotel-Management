@@ -32,54 +32,70 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.post("/users/signup",async(req,res)=>{
+           
+app.post("/users/signup", async (req, res) => {
     try {
-        const {fullname,email,password}=req.body
-        const user=await signup.findOne({email})
-        if(user){
-            res.status(400).json({message:"Email already exists"})
+        const { fullname, email, password } = req.body;
+
+        const user = await signup.findOne({ email });
+        if (user) {
+            return res.status(400).json({ message: "Email already exists" });
         }
 
-        const hashPassword=await bcryptjs.hash(password,10)
+        const hashPassword = await bcryptjs.hash(password, 10);
 
-        const newUser= new signup({
-            fullname:fullname,
-            email:email,
-            password:hashPassword,
-        })
-
-        await newUser.save()
-        res.status(201).json({message:"User created succesfully"})
-    } catch (error) {
-        console.log("Error:",error.message)
-        res.status(500).json({message:"Internal Server Error"})
-    }
-})
-
-app.post("/users/login",async(req,res)=>{
-    try {
-        const{email,password}=req.body
-        const user=await signup.findOne({email})
         
-        const isMatch= await bcryptjs.compare(password,user.password)
+        const newUser = new signup({
+            fullname: fullname,
+            email: email,
+            password: hashPassword,
+        });
 
-        if(!user || !isMatch){
-            res.status(400).json("Invalid Email or Password")
-        }
 
-        res.status(200).json({message:"Login Succesfull",
-            user:{
-                _id:user._id,
-                fullname:user.fullname,
-                email:user.email,
-            }
-        })
+        await newUser.save();
+
+
+        res.status(201).json({ message: "User created successfully" });
 
     } catch (error) {
-        console.log("Error: ",error.message)
+        console.log("Error:", error.message);
 
+        res.status(500).json({ message: "Internal Server Error" });
     }
-})
+});
+
+
+app.post("/users/login", async (req, res) => {
+    try {
+      const { email, password } = req.body;
+  
+      // Check if user exists
+      const user = await signup.findOne({ email });
+      if (!user) {
+        return res.status(400).json({ message: "Invalid Email or Password" });
+      }
+  
+      // Compare password
+      const isMatch = await bcryptjs.compare(password, user.password);
+      if (!isMatch) {
+        return res.status(400).json({ message: "Invalid Email or Password" });
+      }
+  
+      // If login is successful, return user data
+      res.status(200).json({
+        message: "Login Successful",
+        user: {
+          _id: user._id,
+          fullname: user.fullname,
+          email: user.email,
+        }
+      });
+    } catch (error) {
+      console.log("Error:", error.message);
+      res.status(500).json({ message: "Internal Server Error" });
+    }
+  });
+  
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
